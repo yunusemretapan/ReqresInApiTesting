@@ -25,13 +25,13 @@ namespace Tests.ReqresInApiTesting
             restRequest.AddParameter("page", page);
             var response = restClient.Execute(restRequest);
 
-            //var result = JsonConvert.DeserializeObject<Dictionary<object, object>>(response.Content);
+            var result = JsonConvert.DeserializeObject<Dictionary<object, object>>(response.Content);
 
-            //var output = result["page"];
+            var output = result["page"];
 
             Assert.AreEqual(HttpStatusCode.OK, response.StatusCode, "Status Code is not OK");
 
-            //Assert.That(output, Is.EqualTo(2), "page is not correct");
+            Assert.That(output, Is.EqualTo(2), "page is not correct");
         }
 
         [StepDefinition("(.*) numaralı user bilgisini döner")]
